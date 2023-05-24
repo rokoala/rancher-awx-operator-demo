@@ -1,0 +1,18 @@
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx-demo
+spec:
+  # service_type: nodeport
+  service_type: ClusterIP
+  service_labels: |
+    environment: awx-demo
+  service_annotations: |
+    environment: awx-demo
+  ingress_type: ingress
+  hostname: 104.248.12.247.nip.io
+  ingress_path: /awx-demo
+  ingress_annotations: |
+    environment: awx-demo
+  replicas: 2
